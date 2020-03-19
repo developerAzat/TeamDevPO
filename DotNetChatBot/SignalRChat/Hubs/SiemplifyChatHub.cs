@@ -82,7 +82,7 @@ namespace SignalRChat
             p.StartInfo.UseShellExecute = false;
             p.Start();*/
 
-            PythonProcces(userQuestion);
+            //PythonProcces(userQuestion);
 
             //StringBuilder q = new StringBuilder();
             //string r="";
@@ -95,14 +95,16 @@ namespace SignalRChat
             //}
             //p.Kill();
             //Thread.Sleep(5000);
-            string r = "ошибка";
+            /*string r = "ошибка";
             using(StreamReader read = new StreamReader("C:\\Users\\salim\\Desktop\\kernel\\result.txt"))
             {
                 r = read.ReadToEnd();
 
             }
             File.WriteAllText("C:\\Users\\salim\\Desktop\\kernel\\result.txt", string.Empty);
-            return r;
+            return r;*/
+
+            return "здесь будет сообщение с АПИ";
         }
 
         public void PythonProcces(string userQuestion)
