@@ -76,35 +76,19 @@ namespace SignalRChat
         }
         public string PythonConnection(string userQuestion )
         {
-            /*Process p = new Process();
-            p.StartInfo = new ProcessStartInfo("CMD.exe", " /C D:\\Python\\python.exe  D:\\Дина\\Documents\\python.py " + userQuestion);
-            p.StartInfo.RedirectStandardOutput = true;
-            p.StartInfo.UseShellExecute = false;
-            p.Start();*/
-
-            //PythonProcces(userQuestion);
-
-            //StringBuilder q = new StringBuilder();
-            //string r="";
-            //while (p.StandardOutput.Peek() > -1)
-            //{
-            //    string s = p.StandardOutput.ReadToEnd();
-            //    if (s == "end")
-            //        break;
-            //    r= s;
-            //}
-            //p.Kill();
-            //Thread.Sleep(5000);
-            /*string r = "ошибка";
-            using(StreamReader read = new StreamReader("C:\\Users\\salim\\Desktop\\kernel\\result.txt"))
-            {
-                r = read.ReadToEnd();
-
+            try{
+                using(WebClient client = new WebClient())
+                {   
+                    string answer = client.DownloadString("http://127.0.0.1:8000/riddles/?q=" + userQuestion);
+                    return answer;
+                }
             }
-            File.WriteAllText("C:\\Users\\salim\\Desktop\\kernel\\result.txt", string.Empty);
-            return r;*/
+            catch(Exception ex) 
+            {
+                return "У нас технические неполадки";
+            }
 
-            return "здесь будет сообщение с АПИ";
+            
         }
 
         public void PythonProcces(string userQuestion)
