@@ -76,17 +76,16 @@ namespace SignalRChat
         }
         public string PythonConnection(string userQuestion )
         {
-            try{
-                using(WebClient client = new WebClient())
-                {   
-                    string answer = client.DownloadString("http://127.0.0.1:8000/riddles/?q=" + userQuestion);
-                    return answer;
-                }
-            }
-            catch(Exception ex) 
+            PythonProcces(userQuestion);
+
+            string r = "ошибка";
+            using(StreamReader read = new StreamReader("C:\\Users\\salim\\Desktop\\kernel\\result.txt"))
             {
-                return "У нас технические неполадки";
+                r = read.ReadToEnd();
+
             }
+            File.WriteAllText("C:\\Users\\salim\\Desktop\\kernel\\result.txt", string.Empty);
+            return r;
 
             
         }
